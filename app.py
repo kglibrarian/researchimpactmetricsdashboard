@@ -47,7 +47,7 @@ WoSCitationsMeetingTitle = Base.classes.wos_citations_meeting_title
 WoSCitationsCountries = Base.classes.wos_citations_countries
 WoSCitationsGroupAuthors = Base.classes.wos_citations_group_authors
 WoSCitationsLanguage = Base.classes.wos_citations_language
-# WoSCitationsResearchArea = Base.classes.wos_citations_research_areas
+#WoSCitationsResearchArea = Base.classes.wos_citations_research_areas
 WoSCitationsGrantNumbers = Base.classes.wos_citations_grant_numbers
 InCitesDocuments = Base.classes.incites_documents
 InCitesDocumentsJournals = Base.classes.incites_documents_journals
@@ -279,7 +279,7 @@ def wosDocuments():
     return jsonify(wos_documents)
     #print(wos_documents)
 
-#@app.route("/api/v1.0/wosdocumentsorgenhanced")
+@app.route("/api/v1.0/wosdocumentsorgenhanced")
 def wosDocumentsOrgEnhanced():
     # Query all data from the table
     results = session.query(
@@ -295,10 +295,10 @@ def wosDocumentsOrgEnhanced():
         wos_documents_org_enhanced_dict["records"] = records
         wos_documents_org_enhanced_dict["percent"] = percent
         wos_documents_org_enhanced.append(wos_documents_org_enhanced_dict)
-    #return jsonify(wos_documents_org_enhanced)
+    return jsonify(wos_documents_org_enhanced)
     #print(wos_documents_org_enhanced)
 
-wosDocumentsOrgEnhanced()
+
 
 @app.route("/api/v1.0/wosdocumentsfundingagencies")
 def wosDocumentsFundingAgencies():

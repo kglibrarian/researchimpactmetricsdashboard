@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- view-source:https://getbootstrap.com/docs/4.1/examples/dashboard/# -->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.1/assets/img/favicons/favicon.ico">
+    
+    <title>Research Impact Research Review</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <!-- <link rel="stylesheet" type="text/css" href="/static/css/style.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Research Impact Review</a>
+      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="#">Sign out</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="{{ url_for('.home') }}">
+                  <!-- <span data-feather="home"></span> -->
+                  Introduction <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="{{ url_for('.ResearchOutputs') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Research Outputs
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{{ url_for('.Productivity') }}">Productivity</a>
+                  <a class="dropdown-item" href="{{ url_for('.TopAuthors') }}">Top Authors</a>
+                  <!-- <div class="dropdown-divider"></div> -->
+                  <a class="dropdown-item" href="{{ url_for('.OutputsYear') }}">Outputs by Year</a>
+                  <a class="dropdown-item" href="{{ url_for('.OpenAccess') }}">Open Access</a>
+                  <a class="dropdown-item" href="{{ url_for('.Datasets') }}">Datasets</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="{{ url_for('.AdvancementofKnowledge') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Advancement of Knowledge
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{{ url_for('.CitationOverview') }}">Citation Overview</a>
+                  <a class="dropdown-item" href="{{ url_for('.DataCitations') }}">Data Citations</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="{{ url_for('.ClinicalImplementation') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Clinical Implementation
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{{ url_for('.ApproximateTranslate') }}">Citation Overview</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('.LegislationPolicy') }}">
+                  <!-- <span data-feather="file"></span> -->
+                  Legislation and Policy 
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('.CommunityBenefit') }}">
+                  <!-- <span data-feather="file"></span> -->
+                  Community Benefit
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('.CareerDevelopment') }}">
+                  <!-- <span data-feather="shopping-cart"></span> -->
+                  Career Development
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('.AttentionOnline') }}">
+                  <!-- <span data-feather="users"></span> -->
+                  Attention in Online Sources
+                </a>
+              </li>
+              
+            </ul>
+
+            
+        </nav>
+        
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-2 pb-2 mb-3 border-bottom">
+            <h1 class="h2">{{page_name}}</h1>
+            <div class="btn-toolbar " role="toolbar">
+              <div class="btn-group btn-group-sm mr-2" role="group">
+                <button type="button" class="btn btn-sm btn-secondary">Share</button>
+                <button type="button" class="btn btn-sm btn-secondary">Export</button>
+              </div>
+              <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                <span data-feather="calendar"></span>
+                This week
+              </button> -->
+            </div>
+          </div>
+
+          {% block content %} {% endblock %}
+        </main>
+      </div>
+    </div>
+    
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <!-- Plotly -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    
+    <!-- D3.js Version 5 -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+      feather.replace()
+    </script>
+
+    <!-- Graphs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+  
+     
+  </body>
+</html>
+
